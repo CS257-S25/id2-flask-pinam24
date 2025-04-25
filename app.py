@@ -45,11 +45,11 @@ def most_banned(field, limit):
     return function(int(limit))
 
 @app.errorhandler(400)
-def python_bug(e):
+def python_bug():
     '''
     The endpoint for the most banned titles
     '''
-    return "400: Bad Request", e.status_code
+    return "400: Bad Request", 400
 
 if __name__ == "__main__":
     app.run()
