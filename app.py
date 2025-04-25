@@ -1,7 +1,6 @@
 '''
 The location for the Flask app interface for the project.
 '''
-import csv
 from flask import Flask, abort
 
 from ProductionCode.most_banned import (
@@ -34,7 +33,7 @@ def home_page():
         "<li>/most-banned/titles<limit></li>"
         "</ul>"
     )
-    
+
 @app.route('/most-banned/<field>/<limit>', strict_slashes=False)
 def most_banned(field, limit):
     '''
@@ -42,17 +41,8 @@ def most_banned(field, limit):
     '''
     if not limit.isdigit() or field not in most_banned_map:
         abort(400)
-        
     function = most_banned_map[field]
     return function(int(limit))
-    
-@app.errorhandler(400)
-def python_bug(e):
-    '''
-    The endpoint for the most banned titles
-    '''
-    return "400: Bad Request", 400
 
 if __name__ == "__main__":
     app.run()
-    
