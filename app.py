@@ -44,5 +44,12 @@ def most_banned(field, limit):
     function = most_banned_map[field]
     return function(int(limit))
 
+@app.errorhandler(400)
+def python_bug(e):
+    '''
+    The endpoint for the most banned titles
+    '''
+    return "400: Bad Request", e.status_code
+
 if __name__ == "__main__":
     app.run()
