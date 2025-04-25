@@ -45,7 +45,7 @@ def most_banned(field, limit):
     return function(int(limit))
 
 @app.errorhandler(500)
-def python_bug():
+def python_bug(error):
     '''
     The endpoint for the most banned titles
     '''
