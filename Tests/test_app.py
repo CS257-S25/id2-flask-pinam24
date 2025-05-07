@@ -19,9 +19,19 @@ class TestApp(unittest.TestCase):
     def test_homepage(self):
         '''
         Arguments: None
-        Return value: None
+        Return value: Return true if the test passes.
         This function tests the homepage of the Flask application.
         '''
+        response = self.app.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(
+            b'The Forbidden Library',
+            b'Use the following endpoints:',
+            b'/most-banned/districts/limit',
+            b'/most-banned/authors/ limit',
+            b'/most-banned/states/limit',
+            b'/most-banned/titles/limit',
+            response.data)
 
     def test_valid_states_route(self):
         '''
