@@ -24,14 +24,17 @@ class TestApp(unittest.TestCase):
         '''
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(
-            b'The Forbidden Library',
-            b'Use the following endpoints:',
-            b'/most-banned/districts/limit',
-            b'/most-banned/authors/ limit',
-            b'/most-banned/states/limit',
-            b'/most-banned/titles/limit',
-            response.data)
+        expected = (
+            b"<h1>The Forbidden Library</h1>"
+            b"<p>Use the following endpoints:</p>"
+            b"<ul>"
+            b"<li>/most-banned/districts/<limit></li>"
+            b"<li>/most-banned/authors/<limit></li>"
+            b"<li>/most-banned/states/<limit></li>"
+            b"<li>/most-banned/titles/<limit></li>"
+            b"</ul>"
+        )
+        self.assertIn(expected, response.data)
 
     def test_valid_states_route(self):
         '''
