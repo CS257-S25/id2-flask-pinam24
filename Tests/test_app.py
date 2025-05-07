@@ -28,10 +28,10 @@ class TestApp(unittest.TestCase):
             b"<h1>The Forbidden Library</h1>"
             b"<p>Use the following endpoints:</p>"
             b"<ul>"
-            b"<li>/most-banned/districts/<limit></li>"
-            b"<li>/most-banned/authors/<limit></li>"
-            b"<li>/most-banned/states/<limit></li>"
-            b"<li>/most-banned/titles/<limit></li>"
+            b"<li>/most-banned/districts/limit</li>"
+            b"<li>/most-banned/authors/limit</li>"
+            b"<li>/most-banned/states/limit</li>"
+            b"<li>/most-banned/titles/limit</li>"
             b"</ul>"
         )
         self.assertIn(expected, response.data)

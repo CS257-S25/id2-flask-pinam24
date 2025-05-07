@@ -28,7 +28,7 @@ def home_page():
         "<p>Use the following endpoints:</p>"
         "<ul>"
         "<li>/most-banned/districts/limit</li>"
-        "<li>/most-banned/authors/  limit</li>"
+        "<li>/most-banned/authors/limit</li>"
         "<li>/most-banned/states/limit</li>"
         "<li>/most-banned/titles/limit</li>"
         "</ul>"
